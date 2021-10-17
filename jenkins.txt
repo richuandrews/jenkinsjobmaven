@@ -15,6 +15,7 @@ agent any
            stage('Package')
            {
 		   steps{
+		   input("Do you want to proceed with packaging?")
                bat 'mvn package'
 			   }
            }
