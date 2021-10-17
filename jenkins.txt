@@ -1,4 +1,5 @@
 pipeline {
+	stages{
         stage('Prepration') {
                 git 'https://github.com/richuandrews/jenkinsjobmaven.git'
             }
@@ -15,5 +16,6 @@ pipeline {
               junit '**/target/surefire-reports/TEST-*.xml'
                 archiveArtifacts 'target/*.jar'
            }
+		   }
 
 }
