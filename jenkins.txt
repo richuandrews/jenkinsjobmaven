@@ -1,25 +1,25 @@
 pipeline {
 	stages{
         stage('Prepration') {
-		step{
+		steps{
                 git 'https://github.com/richuandrews/jenkinsjobmaven.git'
 				}
             }
 
            stage('Build') {
-		   step{
+		   steps{
                bat 'mvn clean test'
 			   }
            }
            stage('Package')
            {
-		   step{
+		   steps{
                bat 'mvn package'
 			   }
            }
               stage('Results')
            {
-		   step{
+		   steps{
               junit '**/target/surefire-reports/TEST-*.xml'
                 archiveArtifacts 'target/*.jar'
 				}
